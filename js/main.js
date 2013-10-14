@@ -25,10 +25,12 @@ $('#addItem').on('pageinit', function(){
     	console.log("here in storeData");
         //if no key then new item needing key
         if(!key){
+        	console.log("This");
             var id          = Math.floor(Math.random()*100000001);
         }else{
             //set id to the existing key
             id = key;
+            console.log("That");
         }
         
         //Gather all form field values and store in object

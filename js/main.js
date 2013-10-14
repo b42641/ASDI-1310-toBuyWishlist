@@ -2,26 +2,27 @@
 // ASDI 1310
 // ASDI Project
 
+$(document).ready(function() {
 
 $('#mainPage').on('pageinit', function(){
 	//code needed for home page goes here
-	alert("here");
+	console.log("here in mainPage");
 });	
 
 
 // addItem		
 $('#addItem').on('pageinit', function(){
-	
+		console.log("here in addItem");
 	//any other code needed for addItem page goes here
 	
-});
+	var submit = $("#submit");
+	submit.on('click', storeData);
 
-*/
-    
-    
-    
+	
+});
     
     function storeData(key){
+    	console.log("here in storeData");
         //if no key then new item needing key
         if(!key){
             var id          = Math.floor(Math.random()*100000001);
@@ -29,17 +30,20 @@ $('#addItem').on('pageinit', function(){
             //set id to the existing key
             id = key;
         }
+        
         //Gather all form field values and store in object
         //Object properties are going to contain an array with form label and input values
-        getChkItems();
-        var item        = {};
-            item.itemName       = ["Item Name", eLement('itemName').value];
-            item.mediaType      = ["Department", eLement('department').value];
-            item.description    = ["Description", eLement('description').value];
-            item.desireDate     = ["DesiredDate", eLement('desireDate').value];
-            item.priority       = ["Search Tags", eLement('searchTags').value];
-
+     	alert("here in 2 storeData");      
+        var itemData        = {};
+            item.itemName       = ["Item Name", $('#itemName').value];
+            item.mediaType      = ["Department", $('#department').value];
+            item.description    = ["Description", $('#description').value];
+            item.desireDate     = ["DesiredDate", $('#desireDate').value];
+            item.priority       = ["Search Tags", $('#searchTags').value];
+			alert(itemData);
         //Save Data into local storage: use stringify to convert our object to a string
-        localStorage.setItem(id, JSON.stringify(item));
+        localStorage.setItem(id, JSON.stringify(itemData));
         alert("Item Saved!");
-    }
+	}
+
+});

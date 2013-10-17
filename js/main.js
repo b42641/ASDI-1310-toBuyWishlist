@@ -5,47 +5,58 @@
 $(document).ready(function() {
 
 $('#mainPage').on('pageinit', function(){
-	//code needed for home page goes here
-	console.log("here in mainPage");
+
 });	
 
 
 // addItem		
 $('#addItem').on('pageinit', function(){
-		console.log("here in addItem");
-	//any other code needed for addItem page goes here
-	
-	var submit = $("#submit");
-	submit.on('click', storeData);
+	//adding so key must be null	
+	$("#submit").on('click', storeData);
+});
+    
+    
+// ListItems		
+$('#listItems').on('pageinit', function(){
 
+	for(var i=0, len=localStorage.length; i<len; i++){
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+	
+		var obj = JSON.parse(value);
+		$('#recentItemHeader').after('<li> Item: '+(obj.itemName[1])+ ' - ' + (obj.description[1])+ ' - Order by: '+ (obj.desireDate[1]) + '</li>');
+	}
 	
 });
     
-    function storeData(key){
-    	console.log("here in storeData");
-        //if no key then new item needing key
-        if(!key){
-        	console.log("This");
-            var id          = Math.floor(Math.random()*100000001);
-        }else{
-            //set id to the existing key
-            id = key;
-            console.log("That");
-        }
-        
-        //Gather all form field values and store in object
-        //Object properties are going to contain an array with form label and input values
-     	alert("here in 2 storeData");      
-        var itemData        = {};
-            item.itemName       = ["Item Name", $('#itemName').value];
-            item.mediaType      = ["Department", $('#department').value];
-            item.description    = ["Description", $('#description').value];
-            item.desireDate     = ["DesiredDate", $('#desireDate').value];
-            item.priority       = ["Search Tags", $('#searchTags').value];
-			alert(itemData);
-        //Save Data into local storage: use stringify to convert our object to a string
-        localStorage.setItem(id, JSON.stringify(itemData));
-        alert("Item Saved!");
-	}
+  
+function storeData(){
+    //if no key then new item needing key
+/*    if(!key){
+        var id          = Math.floor(Math.random()*100000001);
+    }else{
+        //set id to the existing key
+        id = key;
+    } */
+    
+    //Gather all form field values and store in object
+    //Object properties are going to contain an array with form label and input values
 
+    var id          = Math.floor(Math.random()*100000001);
+    
+    var itemData        = {};
+        itemData.itemName       = ["Item Name", $('#itemName').val()];
+        itemData.mediaType      = ["Department", $('#department').val()];
+        itemData.description    = ["Description", $('#description').val()];
+        itemData.desireDate     = ["DesiredDate", $('#desireDate').val()];
+        itemData.priority       = ["Search Tags", $('#searchTags').val()];
+
+    //Save Data into local storage: use stringify to convert our object to a string
+    localStorage.setItem(id, JSON.stringify(itemData));
+    alert("Item Saved!");
+}
+
+
+
+// end of (document).ready
 });

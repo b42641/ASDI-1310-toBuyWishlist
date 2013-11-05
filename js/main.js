@@ -36,18 +36,40 @@ $('#listItems').on('pageinit', function(){
 $('#assignmentPage').on('pageinit', function(){
 
     $('#jsonButton').click(function(){
-        alert('json clicked');
+        //alert('json clicked');
         $.ajax({
             url         : "xhr/data.json",
             type        : "GET",
             dataType    : "json",
-            success     : function(item, status) {
-                console.log(item, status)
+            success     : function(data, status) {
+                console.log(data, status);
              //   var serializedItem = JSON.stringify(item);
              //   console.log(serializedItem);
+            },
+            error       : function(error, parseerror){
+                console.log(error,parseerror);
             }
         });
     });
+    
+    
+     $('#xmlButton').click(function(){
+        //alert('xml clicked');
+              
+        var xml = "xhr/data.xml";
+
+        var data = $.parseXML(xml);
+        
+        var items = $(data);
+        items.find("item").each(function(){
+        var item = $(this);
+        console.log("Item Name: ", item.find("itemName"));    
+    });
+        
+});
+
+    
+    
 /*	for(var i=0, len=localStorage.length; i<len; i++){
 		var key = localStorage.key(i);
 		var value = localStorage.getItem(key);

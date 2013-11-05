@@ -251,7 +251,7 @@
     
     
     
-    <!-- LIST ITEM PAGE -->
+    <!-- LIST JSON ITEM PAGE -->
     <section data-role="page" id="listJSON">
         <header data-role="header"> 
             <a href="#mainPage"> <img src="./img/wishlistLogo.png" style="float:left;display:inline" width="80" id="listWishListIcon" alt="Logo Image"/> </a>
@@ -262,7 +262,7 @@
 
             <!-- DISPLAY LAST 5 ITEMS ENTERED -->
             <ul data-role="listview" data-theme="a" data-dividertheme="e">
-                <li data-role="list-divider" id="recentItemHeader"><h2>JSON Data</h2></li>        
+                <li data-role="list-divider" id="jsonHeader"><h2>JSON Data</h2></li>        
             </ul>
         </section>
             
@@ -277,9 +277,35 @@
         </footer>
 
     </section>
-    <!-- END OF LIST ITEM PAGE -->
+    <!-- END OF JSON LIST ITEM PAGE -->
  
-    
+        <!-- LIST XML ITEM PAGE -->
+    <section data-role="page" id="listXML">
+        <header data-role="header"> 
+            <a href="#mainPage"> <img src="./img/wishlistLogo.png" style="float:left;display:inline" width="80" id="listWishListIcon" alt="Logo Image"/> </a>
+            <h1>XML Data Listing</h1>
+        </header>
+        
+        <section data-role="content" id="xmlList" data-theme="e">
+
+            <!-- DISPLAY LAST 5 ITEMS ENTERED -->
+            <ul data-role="listview" data-theme="a" data-dividertheme="e">
+                <li data-role="list-divider" id="xmlHeader"><h2>XML Data</h2></li>        
+            </ul>
+        </section>
+            
+                        
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#mainPage"  class="ui-btn-active">Home</a></li>
+                    <li><a href="#list">List</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </section>
+    <!-- END OF XML LIST ITEM PAGE -->
     
     
     

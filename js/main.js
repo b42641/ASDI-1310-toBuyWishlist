@@ -35,6 +35,7 @@ $('#listItems').on('pageinit', function(){
 // LIST ITEMS IN VARIOUS FORMATS
 $('#assignmentPage').on('pageinit', function(){
 
+    // JSON FILE READ AND CONSOLE LOG
     $('#jsonButton').click(function(){
         //alert('json clicked');
         $.ajax({
@@ -52,22 +53,52 @@ $('#assignmentPage').on('pageinit', function(){
         });
     });
     
-    
+    // XML FILE READ AND CONSOLE LOG
      $('#xmlButton').click(function(){
         //alert('xml clicked');
-              
-        var xml = "xhr/data.xml";
-
-        var data = $.parseXML(xml);
-        
-        var items = $(data);
-        items.find("item").each(function(){
-        var item = $(this);
-        console.log("Item Name: ", item.find("itemName"));    
+    
+        $.ajax({
+        url         :"xhr/data.xml",
+        type        : "GET",
+        dataType    : "xml",
+        success     :  function (data, status) {
+            console.log(data, status);
+        },
+        error       : function (data, status) {
+            console.log(data, status);
+        }
+        });
+   
     });
         
-});
 
+
+
+    // CSV FILE READ AND CONSOLE LOG
+    $('#csvButton').click(function(){
+        //alert('csv clicked');    
+
+        $.ajax({
+            url         :"xhr/data.csv",
+            type        : "GET",
+            dataType    : "text/csv",
+            success     :  function (data, status) {
+                console.log(data, status);
+            },
+            error       : function (data, status) {
+                console.log(data, status);
+            }
+        });
+    });
+            
+});
+          
+        
+
+
+    
+
+    
     
     
 /*	for(var i=0, len=localStorage.length; i<len; i++){
@@ -78,7 +109,7 @@ $('#assignmentPage').on('pageinit', function(){
 		$('#recentItemHeader').after('<li><a href="#editItems" id=key class="testClick"> Item: '+(obj.itemName[1])+ ' - ' + (obj.description[1])+ ' - Order by: '+ (obj.desireDate[1]) +  '</li>');
 	}
 */	
-})
+
 
 
 

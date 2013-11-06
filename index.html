@@ -233,7 +233,7 @@
             <div data-role="content">
                 <p><a href="#listJSON" id="jsonButton" data-role="button" data-icon="list" data-theme="a">JSON Data</a></p>
                 <p><a href="#listXML" id="xmlButton" data-role="button" data-icon="list" data-theme="a">XML Data</a></p>
-                <p><a href="#listCSV" id="otherButton" data-role="button" data-icon="list" data-theme="a">CSV Data</a></p>  
+                <p><a href="#listCSV" id="csvButton" data-role="button" data-icon="list" data-theme="a">CSV Data</a></p>  
             </div>
         </section>
 
@@ -308,7 +308,35 @@
     <!-- END OF XML LIST ITEM PAGE -->
     
     
+         <!-- LIST CSV ITEM PAGE -->
+    <section data-role="page" id="listCSV">
+        <header data-role="header"> 
+            <a href="#mainPage"> <img src="./img/wishlistLogo.png" style="float:left;display:inline" width="80" id="listWishListIcon" alt="Logo Image"/> </a>
+            <h1>CSV Data Listing</h1>
+        </header>
+        
+        <section data-role="content" id="csvList" data-theme="e">
+
+            <!-- DISPLAY LAST 5 ITEMS ENTERED -->
+            <ul data-role="listview" data-theme="a" data-dividertheme="e">
+                <li data-role="list-divider" id="xmlHeader"><h2>CSV Data</h2></li>        
+            </ul>
+        </section>
+            
+                        
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#mainPage"  class="ui-btn-active">Home</a></li>
+                    <li><a href="#list">List</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </section>
+    <!-- END OF CSV LIST ITEM PAGE -->
     
+      
     
     
     

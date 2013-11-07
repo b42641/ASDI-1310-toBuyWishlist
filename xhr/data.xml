@@ -7,4 +7,32 @@
         <desireDate>01/11/2011</desireDate>
         <searchTags>book</searchTags>
     </item>
+        <item>
+        <itemName>Dylan</itemName>
+        <department>music</department>
+        <description>Bob Dylans First Album</description>
+        <desireDate>12/15/2013</desireDate>
+        <searchTags>mp3</searchTags>
+    </item>
+        <item>
+        <itemName>John Adams</itemName>
+        <department>book</department>
+        <description>A Great American</description>
+        <desireDate>01/11/2014</desireDate>
+        <searchTags>book</searchTags>
+    </item>
+        <item>
+        <itemName>100 Years</itemName>
+        <department>music</department>
+        <description>Five For Fightings Great Song</description>
+        <desireDate>06/11/2014</desireDate>
+        <searchTags>song</searchTags>
+    </item>
+        <item>
+        <itemName>Game of Thrones</itemName>
+        <department>audible</department>
+        <description>First book of epic series</description>
+        <desireDate>12/25/2013</desireDate>
+        <searchTags>audiblebook</searchTags>
+    </item>
 </items>

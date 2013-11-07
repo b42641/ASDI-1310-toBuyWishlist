@@ -34,63 +34,73 @@ $('#listItems').on('pageinit', function(){
 
 // LIST ITEMS IN VARIOUS FORMATS
 $('#assignmentPage').on('pageinit', function(){
-
+	var jsonData = '';
     // JSON FILE READ AND CONSOLE LOG
     $('#jsonButton').click(function(){
-        //alert('json clicked');
         $.ajax({
             url         : "xhr/data.json",
             type        : "GET",
             dataType    : "json",
             success     : function(data, status) {
-                console.log(data, status);
-             //   var serializedItem = JSON.stringify(item);
-             //   console.log(serializedItem);
+                console.log("data - " + data, status);
+//				var serializedItem = JSON.stringify(data);
+
+             	//   console.log(serializedItem);
+			 	jsonData = data;
+			 	console.log("jsonData = " + jsonData);
+			 	$('#jsonHeader').append('<li>Item: '+ jsonData.itemName +  '</li>');
+			 	$('#jsonHeader').append('<li>Department: '+ jsonData.department +  '</li>');
+			 	$('#jsonHeader').append('<li>Desire Date: '+ jsonData.desireDate +  '</li>');
+			 	$('#jsonHeader').append('<li>Description: '+ jsonData.description +  '</li>');
+			  	$('#jsonHeader').append('<li>SearchTag: '+ jsonData.searchTags +  '</li>');
+
             },
             error       : function(error, parseerror){
                 console.log(error,parseerror);
-            }
-        });
-    });
+            }   
+        });    
+
+
+	});
     
     // XML FILE READ AND CONSOLE LOG
      $('#xmlButton').click(function(){
         //alert('xml clicked');
-    
+    	var xmlData = '';
+
         $.ajax({
-        url         :"xhr/data.xml",
-        type        : "GET",
-        dataType    : "xml",
-        success     :  function (data, status) {
-            console.log(data, status);
-        },
-        error       : function (data, status) {
-            console.log(data, status);
-        }
-        });
+        	url         :"xhr/data.xml",
+			type        : "GET",
+			dataType    : "xml",
+			success     :  function (data, status) {
+            	console.log(data, status);
+            	xmlData = data;
+				var items = $(xmlData);
+				items.find("item").each(function(){
+				var item = $(this);
+				
+				$('#xmlHeader').append('<li>Item Name: '+ item.find("itemName").text() +  '</li>');
+				$('#xmlHeader').append('<li>Department: '+ item.find("department").text() +  '</li>');
+				$('#xmlHeader').append('<li>Desire Date: '+ item.find("desireDate").text() +  '</li>');
+				$('#xmlHeader').append('<li>Description: '+ item.find("description").text() +  '</li>');
+				$('#xmlHeader').append('<li>Search Tags: '+ item.find("searchTags").text() +  '</li>');			
+			    });
+			
+			},
+        	error       : function (data, status) {
+            	console.log(data, status);
+			}
+    
+
+
+		});  
    
     });
         
 
 
 
-    // CSV FILE READ AND CONSOLE LOG
-    $('#csvButton').click(function(){
-        //alert('csv clicked');    
-
-        $.ajax({
-            url         :"xhr/data.csv",
-            type        : "GET",
-            dataType    : "text/csv",
-            success     :  function (data, status) {
-                console.log(data, status);
-            },
-            error       : function (data, status) {
-                console.log(data, status);
-            }
-        });
-    });
-            
+                
 });
           
         

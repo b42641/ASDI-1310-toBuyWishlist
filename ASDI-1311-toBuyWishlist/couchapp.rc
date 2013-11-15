@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/tobuywishlist"
+    },
+    "cloudant": {
+      "db": "https://dbpete:schroon@dbpete.cloudant.com/tobuywishlist"
+    }
+  }
+}

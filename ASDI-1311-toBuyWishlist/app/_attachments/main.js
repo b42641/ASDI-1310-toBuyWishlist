@@ -4,6 +4,14 @@
 
 $(document).ready(function() {
 
+/*
+//FROM VIDEO
+$(document).on('pageinit', '#home', function(){
+	//CouchDB Code
+	$.couch.db("tobuywishlist").view(
+});
+*/
+
 var currentKey = '';
 var currentCount = '2';
 var maxCount = '';

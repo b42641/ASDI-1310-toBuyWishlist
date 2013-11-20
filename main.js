@@ -4,6 +4,14 @@
 
 $(document).ready(function() {
 
+/*
+//FROM VIDEO
+$(document).on('pageinit', '#home', function(){
+	//CouchDB Code
+	$.couch.db("tobuywishlist").?????view(??????
+});
+*/
+
 var currentKey = '';
 var currentCount = '2';
 var maxCount = '';
@@ -38,21 +46,20 @@ $('#assignmentPage').on('pageinit', function(){
     // JSON FILE READ AND CONSOLE LOG
     $('#jsonButton').click(function(){
         $.ajax({
-            url         : "xhr/data.json",
+            url         : "_view/completetobuywishlist",
             type        : "GET",
             dataType    : "json",
             success     : function(data, status) {
-                console.log("data - " + data, status);
-//				var serializedItem = JSON.stringify(data);
+				var serializedItem = JSON.stringify(data);
+                //console.log('serialized item: ' + serializedItem);
 
-             	//   console.log(serializedItem);
-			 	jsonData = data;
-			 	console.log("jsonData = " + jsonData);
-			 	$('#jsonHeader').append('<li>Item: '+ jsonData.itemName +  '</li>');
-			 	$('#jsonHeader').append('<li>Department: '+ jsonData.department +  '</li>');
-			 	$('#jsonHeader').append('<li>Desire Date: '+ jsonData.desireDate +  '</li>');
-			 	$('#jsonHeader').append('<li>Description: '+ jsonData.description +  '</li>');
-			  	$('#jsonHeader').append('<li>SearchTag: '+ jsonData.searchTags +  '</li>');
+			 	$.each(data.rows, function(index, items) {
+			 		$('#jsonHeader').append('<li>Item: '+ items.value.itemname +  '</li>');
+			 		$('#jsonHeader').append('<li>Department: '+ items.value.department +  '</li>');
+			 		$('#jsonHeader').append('<li>Desire Date: '+ items.value.desiredate +  '</li>');
+			 		$('#jsonHeader').append('<li>Description: '+ items.value.description +  '</li>');
+			  		$('#jsonHeader').append('<li>SearchTag: '+ items.value.searchtags +  '</li>');
+			  	});
 
             },
             error       : function(error, parseerror){
@@ -62,7 +69,8 @@ $('#assignmentPage').on('pageinit', function(){
 
 
 	});
-    
+
+/*    
     // XML FILE READ AND CONSOLE LOG
      $('#xmlButton').click(function(){
         //alert('xml clicked');
@@ -97,7 +105,7 @@ $('#assignmentPage').on('pageinit', function(){
    
     });
         
-
+*/
 
 
                 

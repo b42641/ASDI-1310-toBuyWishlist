@@ -4,13 +4,17 @@
 
 $(document).ready(function() {
 
-/*
+
 //FROM VIDEO
-$(document).on('pageinit', '#home', function(){
+$(document).on('pageinit', '#mainPage', function(){
 	//CouchDB Code
-	$.couch.db("tobuywishlist").view(
+	$.couch.db("tobuywishlist").view("completetobuywishlist" , {
+		success: function(data) {
+			console.log(data);
+		}
+	});
 });
-*/
+
 
 var currentKey = '';
 var currentCount = '2';

@@ -107,7 +107,7 @@ $(document).on('pageinit', '#editItems', function(){
         	itemname: $('#editItemName').val(),
 			department: $('#editDepartment').val(),
 			description: $('#editDescription').val(),
-			desiredata: $('#editDesireDate').val(),
+			desiredate: $('#editDesireDate').val(),
 			searchtags: $('#editTag').val()
         }
 	
@@ -173,7 +173,7 @@ function addData(){
         itemname: $('#itemName').val(),
         department: $('#department').val(),
         description: $('#description').val(),
-        desiredata: $('#desireDate').val(),
+        desiredate: $('#desireDate').val(),
         searchtags: $('#tag').val()
 	};
 	
